@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Prestations | NIAMPITA NY ONJA</title>
+
+    <link href="../src/output.css" rel="stylesheet">
+
+    <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-zinc-950 text-white font-sans overflow-x-hidden">
+
+    <header x-data="{ active: 'Prestations', offset: 0, width: 0, mobileMenu: false }" x-init="$nextTick(() => { 
+                let el = document.getElementById('nav-Prestations');
+                if(el) { offset = el.offsetLeft; width = el.offsetWidth; }
+            })" class="fixed top-0 w-full z-50 bg-zinc-650/80 backdrop-blur-md border-b border-zinc-800">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between relative">
+            <a class="text-xl md:text-2xl font-bold tracking-tighter flex items-center gap-2" href="../index.html">
+                <img src="../Vue/img/gestalt-annsno-high-resolution-logo.png" alt="Logo" class="w-8 h-8 rounded-full">
+                <span>NIAMPITA NY ONJA</span>
+            </a>
+    
+            <nav class="hidden lg:flex items-center relative py-2 bg-zinc-900/50 px-2 rounded-full">
+                <div class="absolute h-8 rounded-full transition-all duration-300 ease-out z-0 bg-zinc-800"
+                    :style="`left: ${offset}px; width: ${width}px; box-shadow: 0 0 15px rgba(6,182,212,0.1)`"></div>
+    
+                <template x-for="item in [
+                            { name: 'Accueil', url: '../index.html' },
+                            { name: 'Prestations', url: './prestations.html' },
+                            { name: 'Articles', url: './articles.html' },
+                            { name: 'Expériences', url: './expériences.html' },
+                            { name: 'Compétences', url: './competences.html' },
+                            { name: 'À Propos', url: './a-propos.html' },
+                        ]">
+                    <a :id="'nav-' + item.name" :href="item.url"
+                        @mouseenter="offset = $el.offsetLeft; width = $el.offsetWidth" @click="active = item.name"
+                        :class="active === item.name ? 'text-white' : 'text-zinc-400'"
+                        class="relative z-10 px-6 py-1 text-sm font-medium transition-all duration-500 hover:text-white"
+                        x-text="item.name">
+                    </a>
+                </template>
+            </nav>
+    
+            <button @click="mobileMenu = !mobileMenu"
+                class="lg:hidden p-2 text-zinc-400 hover:text-cyan-400 transition-colors focus:outline-none">
+                <svg x-show="!mobileMenu" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+                <svg x-show="mobileMenu" x-cloak class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    
+        <div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="lg:hidden bg-zinc-900 border-b border-zinc-800 px-6 py-6 space-y-4">
+    
+            <a href="../index.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Accueil</a>
+            <a href="./prestations.html"
+                class="block text-lg font-medium text-white hover:text-cyan-400 transition-colors">Prestations</a>
+            <a href="./articles.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Articles</a>
+            <a href="./expériences.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Expériences</a>
+            <a href="./competences.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Compétences</a>
+            <a href="./a-propos.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">À Propos</a>
+    
+            <div class="pt-4 border-t border-zinc-800">
+                <a href="mailto:nyonjasolofo@gmail.com" class="text-sm text-cyan-500 font-bold">Me contacter</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative min-h-screen bg-zinc-950 pt-32 pb-20 px-4 overflow-hidden">
+
+        <div
+            class="absolute top-0 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-rotate-cyan pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] animate-pulse-rotate-purple pointer-events-none">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 pointer-events-none">
+        </div>
+
+        <div class="container mx-auto relative z-10" x-data="{ 
+            loading: true,
+            services: [
+                { 
+                    title: 'Rédaction Web SEO', desc: 'Contenus optimisés pour booster votre visibilité sur Google.', icon: 'M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z', features: ['Articles optimisés', 'Pages SEO', 'Fiches produits', 'Audit sémantique'],
+                    image: '../Vue/img/Rédaction-Web.jpg' 
+                },
+                { 
+                    title: 'Copywriting', desc: 'L\'art de vendre par les mots et captiver votre audience.', icon: 'M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z', features: ['Landing pages', 'Newsletters', 'Scripts vidéo', 'Storytelling'],
+                    image: '../Vue/img/copywriting.jpeg'
+                },
+                { 
+                    title: 'Traduction', desc: 'Adaptation créative de vos messages pour l\'international.', icon: 'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10', features: ['Traduction EN ⇄ FR', 'Transcréation', 'Localisation', 'Révision'],
+                    image: '../Vue/img/flag-countries-foreign-word-translation-concept.jpg'
+                },
+                { 
+                    title: 'Audit SEO', desc: 'Analyse technique pointue pour propulser votre site.', icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z', features: ['Audit complet', 'Mots-clés', 'Netlinking', 'Suivi positions'],
+                    image: '../Vue/img/growtika-dQkAdUGCntA-unsplash.jpg'
+                },
+                { 
+                    title: 'Stratégie Contenu', desc: 'Planification éditoriale pour une croissance durable.', icon: 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6', features: ['Calendrier éditorial', 'Personal Branding', 'Social Media', 'Lead Magnets'],
+                    image: '../Vue/img/stratégie-contenu.jpg'
+                },
+                { 
+                    title: 'Développement Web', desc: 'Design et performance pour une interface utilisateur unique.', icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4', features: ['Sites vitrines', 'Landing pages', 'Responsive design', 'Optimisation Vitals'],
+                    image: '../Vue/img/développement-web.jpg'
+                }
+            ]
+        }" x-init="setTimeout(() => loading = false, 1200)">
+
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-white mb-12">
+                    Mes <span
+                        class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Prestations</span>
+                </h1>
+                <p class="text-zinc-400 text-xl max-w-2xl mx-auto">Services de création de contenu et stratégie
+                    digitale.</p>
+            </div>
+
+            <div x-show="loading" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <template x-for="i in 6" :key="i">
+                    <div class="relative w-full max-w-sm mx-auto p-0.5 rounded-2xl bg-zinc-800 animate-pulse h-[420px]">
+                        <div class="relative flex flex-col h-full w-full bg-zinc-950 rounded-[14px] p-8">
+                            <div class="w-14 h-14 rounded-xl bg-zinc-800 mb-6"></div>
+                            <div class="h-6 w-3/4 bg-zinc-800 rounded mb-4"></div>
+                            <div class="space-y-2 mb-8">
+                                <div class="h-4 w-full bg-zinc-800 rounded"></div>
+                                <div class="h-4 w-5/6 bg-zinc-800 rounded"></div>
+                            </div>
+                            <div class="mt-auto border-t border-zinc-900 pt-6 space-y-3">
+                                <div class="h-3 w-1/2 bg-zinc-800 rounded"></div>
+                                <div class="h-3 w-2/3 bg-zinc-800 rounded"></div>
+                                <div class="h-3 w-1/3 bg-zinc-800 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            
+            <div x-show="!loading" x-cloak class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <template x-for="(service, index) in services" :key="index">
+
+                    <div x-data="{ shown: false }" x-init="setTimeout(() => shown = true, index * 100)"
+                        :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
+                        class="group relative w-full max-w-sm mx-auto p-0.5 rounded-2xl transition-all duration-500 ease-out bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:-translate-y-2 flex flex-col h-full min-h-[420px]">
+
+                        <div
+                            class="relative flex flex-col h-full w-full bg-zinc-950 rounded-[14px] overflow-hidden p-8 z-10">
+
+                            <div class="absolute inset-0 z-0 overflow-hidden rounded-[14px]">
+                                <img :src="service.image"
+                                    class="w-full h-full object-cover opacity-40 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700"
+                                    alt="Background">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/20 group-hover:via-zinc-950/60 transition-colors duration-700">
+                                </div>
+                            </div>
+
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div
+                                    class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 backdrop-blur-sm shadow-[0_4px_15px_rgba(0,0,0,0.5)]">
+                                    <svg class="w-7 h-7 text-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.6)]"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            :d="service.icon" />
+                                    </svg>
+                                </div>
+
+                                <h3 class="text-xl font-bold text-white mb-3 tracking-wide" x-text="service.title"></h3>
+                                <p class="text-zinc-300 text-sm leading-relaxed mb-8 flex-grow" x-text="service.desc">
+                                </p>
+
+                                <ul class="space-y-3 mt-auto border-t border-white/10 pt-6">
+                                    <template x-for="f in service.features">
+                                        <li class="flex items-start text-zinc-100 text-sm font-medium">
+                                            <span
+                                                class="inline-block w-2 h-2 rounded-full bg-blue-500 mt-1.5 mr-3 shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.8)]"></span>
+                                            <span x-text="f"></span>
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+            </div>
+
+            <div class="text-center mt-20">
+                <p class="text-zinc-400 mb-12">Prêt à propulser votre stratégie de contenu ?</p>
+                <button
+                    class="inline-block bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-10 py-4 rounded-full text-lg font-bold transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-95">
+                    Me contacter
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-950 pt-20 pb-10 border-t border-zinc-900">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-6 tracking-tighter">NIAMPITA NY ONJA</div>
+                    <p class="text-zinc-500 max-w-sm mb-6">Solutions de rédaction et copywriting haut de gamme pour
+                        marques audacieuses.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Navigation</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li><a href="../index.html" class="hover:text-cyan-500 transition-colors">Accueil</a></li>
+                        <li><a href="../Model/prestations.html"
+                                class="hover:text-cyan-500 transition-colors">Prestations</a></li>
+                        <li><a href="../Model/articles.html" class="hover:text-cyan-500 transition-colors">Articles</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contacts</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li><a href="mailto:nyonjasolofo@gmail.com?subject=Contact%20depuis%20mon%20portfolio">M'envoyer un
+                                mail à nyonjasolofo@gmail.com</a></li>
+                        <li><a href="tel:+261346056035" class="hover:text-cyan-500 transition-colors">M'appeler au :
+                                0346056035</a></li>
+                        <li><a href="https://teams.microsoft.com/l/chat/0/0?users=orimichikimiko@gmail.com" target="_blank"
+                                rel="noopener noreferrer">Me contacter sur Teams à Ainanomena Solofo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-zinc-900 flex flex-col md:row justify-between items-center gap-4">
+                <p class="text-zinc-600 text-xs">© 2026 Niampita Ny Onja. Tous droits réservés.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-zinc-600 hover:text-white text-xs transition-colors">Mentions Légales</a>
+                    <a href="#" class="text-zinc-600 hover:text-white text-xs transition-colors">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

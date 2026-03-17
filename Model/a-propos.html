@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | NIAMPITA NY ONJA</title>
+
+    <link href="../src/output.css" rel="stylesheet">
+
+    <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-zinc-950 text-white font-sans overflow-x-hidden">
+
+    <header x-data="{ active: 'À Propos', offset: 0, width: 0, mobileMenu: false }" x-init="$nextTick(() => { 
+                let el = document.getElementById('nav-À Propos');
+                if(el) { offset = el.offsetLeft; width = el.offsetWidth; }
+            })" class="fixed top-0 w-full z-50 bg-zinc-650/80 backdrop-blur-md border-b border-zinc-800">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between relative">
+            <a class="text-xl md:text-2xl font-bold tracking-tighter flex items-center gap-2" href="../index.html">
+                <img src="../Vue/img/gestalt-annsno-high-resolution-logo.png" alt="Logo" class="w-8 h-8 rounded-full">
+                <span>NIAMPITA NY ONJA</span>
+            </a>
+    
+            <nav class="hidden lg:flex items-center relative py-2 bg-zinc-900/50 px-2 rounded-full">
+                <div class="absolute h-8 rounded-full transition-all duration-300 ease-out z-0 bg-zinc-800"
+                    :style="`left: ${offset}px; width: ${width}px; box-shadow: 0 0 15px rgba(6,182,212,0.1)`"></div>
+    
+                <template x-for="item in [
+                            { name: 'Accueil', url: '../index.html' },
+                            { name: 'Prestations', url: './prestations.html' },
+                            { name: 'Articles', url: './articles.html' },
+                            { name: 'Expériences', url: './expériences.html' },
+                            { name: 'Compétences', url: './competences.html' },
+                            { name: 'À Propos', url: './a-propos.html' },
+                        ]">
+                    <a :id="'nav-' + item.name" :href="item.url"
+                        @mouseenter="offset = $el.offsetLeft; width = $el.offsetWidth" @click="active = item.name"
+                        :class="active === item.name ? 'text-white' : 'text-zinc-400'"
+                        class="relative z-10 px-6 py-1 text-sm font-medium transition-all duration-500 hover:text-white"
+                        x-text="item.name">
+                    </a>
+                </template>
+            </nav>
+    
+            <button @click="mobileMenu = !mobileMenu"
+                class="lg:hidden p-2 text-zinc-400 hover:text-cyan-400 transition-colors focus:outline-none">
+                <svg x-show="!mobileMenu" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+                <svg x-show="mobileMenu" x-cloak class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    
+        <div x-show="mobileMenu" x-cloak x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="lg:hidden bg-zinc-900 border-b border-zinc-800 px-6 py-6 space-y-4">
+    
+            <a href="../index.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Accueil</a>
+            <a href="./prestations.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Prestations</a>
+            <a href="./articles.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Articles</a>
+            <a href="./expériences.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Expériences</a>
+            <a href="./competences.html"
+                class="block text-lg font-medium text-zinc-400 hover:text-cyan-400 transition-colors">Compétences</a>
+            <a href="./a-propos.html" class="block text-lg font-medium text-white hover:text-cyan-400 transition-colors">À
+                Propos</a>
+    
+            <div class="pt-4 border-t border-zinc-800">
+                <a href="mailto:nyonjasolofo@gmail.com" class="text-sm text-cyan-500 font-bold">Me contacter</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="relative min-h-screen bg-zinc-950 pt-32 pb-20 px-4 overflow-hidden">
+
+        <div
+            class="absolute top-0 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px] animate-pulse-rotate-cyan pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px] animate-pulse-rotate-purple pointer-events-none">
+        </div>
+        <div
+            class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-pink-500/10 pointer-events-none">
+        </div>
+
+        <div class="container mx-auto relative z-10 max-w-5xl">
+
+            <div class="text-center mb-16">
+                <h1 class="text-5xl font-bold text-white mb-6">
+                    À <span
+                        class="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Propos</span>
+                </h1>
+                <p class="text-zinc-400 text-xl max-w-2xl mx-auto">Créateur de contenus digitaux & Développeur Web</p>
+            </div>
+
+            <img src="../Vue/img/wmremove-transformed (1).png" class="mb-8 rounded-2xl h-full w-full"  alt="">
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+                <div class="lg:col-span-8 space-y-8">
+
+                    <div
+                        class="p-0.5 rounded-2xl bg-zinc-800 transition-all duration-500 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 group">
+                        <div class="bg-zinc-950/90 backdrop-blur-xl rounded-[15px] p-8 h-full relative overflow-hidden">
+                            <div
+                                class="absolute -right-10 -top-10 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-colors duration-500">
+                            </div>
+                    
+                            <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                                <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                La philosophie Gestalt-Ansnno
+                            </h3>
+                    
+                            <div
+                                class="space-y-4 text-zinc-300 leading-relaxed border-l-2 border-zinc-700 pl-5 py-1 group-hover:border-purple-500/50 transition-colors">
+                                <p>
+                                    En psychologie, la théorie de la <strong class="text-white">Gestalt</strong> postule un principe
+                                    fondamental : <em class="text-zinc-400">« le tout est perçu comme étant bien plus que la simple somme de
+                                        ses parties »</em>. C'est cette vision holistique qui forge l'identité de
+                                    <strong>Gestalt-Ansnno</strong>.
+                                </p>
+                                <p>
+                                    Dans l'écosystème digital, une expérience utilisateur exceptionnelle ne se résume pas à un empilement de
+                                    compétences. Un texte persuasif perd de son impact s'il est noyé dans une interface confuse. À
+                                    l'inverse, un design sublime et un code optimisé sonnent creux sans un message captivant et
+                                    sémantiquement structuré.
+                                </p>
+                                <p>
+                                    Gestalt-Ansnno est la promesse d'une synergie parfaite entre ces univers. Tel un casse-tête dont on
+                                    aligne méthodiquement chaque facette pour révéler une harmonie globale, j'imbrique la logique du <strong
+                                        class="text-cyan-400">développement Front-end</strong>, l'esthétique du <strong
+                                        class="text-cyan-400">design UI/UX</strong> et la force de persuasion de la <strong
+                                        class="text-cyan-400">création de contenus</strong>.
+                                </p>
+                                <p>
+                                    Chaque ligne de code, chaque micro-animation et chaque mot choisi ne sont plus des éléments isolés, mais
+                                    les rouages d'une interface vivante, conçue pour captiver l'audience et la convertir.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lg:col-span-4">
+                    <div x-data="{ sent: false }"
+                        class="group relative p-0.5 rounded-2xl bg-zinc-800 transition-all duration-500 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 shadow-2xl sticky top-28">
+                
+                        <div class="relative bg-zinc-950/90 backdrop-blur-xl rounded-[14px] p-6 overflow-hidden">
+                            <div
+                                class="absolute -right-4 -top-4 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-colors">
+                            </div>
+                
+                            <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                Prendre rendez-vous
+                            </h3>
+                            <p class="text-zinc-500 text-xs mb-6 italic">Partagez les détails de votre projet ou de votre offre
+                                d'entretien.</p>
+                
+                            <form action="https://formspree.io/f/xbdzzgvv" method="POST" x-data="{ 
+                                    state: 'idle', 
+                                    async submit(e) {
+                                        if (e.target._gotcha.value !== '') return;
+                                                                        
+                                        this.state = 'sending';
+                                        const formData = new FormData(e.target);
+                                                                        
+                                        try {
+                                            const response = await fetch(e.target.action, {
+                                                method: 'POST',
+                                                body: formData,
+                                                headers: { 'Accept': 'application/json' }
+                                            });
+                                        
+                                            if (response.ok) {
+                                                window.location.href = 'merci.html'; 
+                                            } else {
+                                                this.state = 'error';
+                                            }
+                                        } catch (err) {
+                                            this.state = 'error';
+                                        }
+                                    }
+                                  }" @submit.prevent="submit" class="space-y-4">
+                            
+                                <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off">
+                            
+                                <div>
+                                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-1 ml-1">Nom ou Organisation</label>
+                                    <input type="text" name="name" required
+                                        class="w-full bg-zinc-900/50 border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all placeholder:text-zinc-700"
+                                        placeholder="Ex: Agence Web X">
+                                </div>
+                            
+                                <div>
+                                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-1 ml-1">Email de contact</label>
+                                    <input type="email" name="email" required
+                                        class="w-full bg-zinc-900/50 border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all placeholder:text-zinc-700"
+                                        placeholder="votre@email.com">
+                                </div>
+                            
+                                <div>
+                                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-1 ml-1">Objet</label>
+                                    <select name="subject"
+                                        class="w-full bg-zinc-900/50 border border-white/5 rounded-xl px-4 py-3 text-sm text-zinc-400 focus:outline-none focus:ring-2 focus:ring-cyan-500/50 transition-all appearance-none">
+                                        <option>Proposition d'entretien</option>
+                                        <option>Collaboration Projet Web</option>
+                                        <option>Mission Copywriting / SEO</option>
+                                        <option>Autre</option>
+                                    </select>
+                                </div>
+                            
+                                <div>
+                                    <label class="block text-[10px] uppercase tracking-widest text-zinc-500 mb-1 ml-1">Informations utiles</label>
+                                    <textarea name="message" rows="4" required
+                                        class="w-full bg-zinc-900/50 border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all placeholder:text-zinc-700"
+                                        placeholder="Décrivez votre projet..."></textarea>
+                                </div>
+                            
+                                <button type="submit" :disabled="state === 'sending'"
+                                    class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-purple-600 text-white font-bold text-sm tracking-widest uppercase hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] active:scale-95 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                                    <span x-show="state !== 'sending'">Envoyer la demande</span>
+                                    <span x-show="state === 'sending'" class="flex items-center justify-center gap-2">
+                                        <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                            <path class="opacity-75" fill="currentColor"
+                                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                            </path>
+                                        </svg>
+                                        Envoi en cours...
+                                    </span>
+                                </button>
+                            
+                                <div x-show="state === 'error'" x-transition
+                                    class="mt-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-center text-xs">
+                                    Oups ! Une erreur est survenue. Veuillez réessayer.
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-zinc-950 pt-20 pb-10 border-t border-zinc-900">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2">
+                    <div class="text-2xl font-bold mb-6 tracking-tighter">NIAMPITA NY ONJA</div>
+                    <p class="text-zinc-500 max-w-sm mb-6">Solutions de rédaction et copywriting haut de gamme pour
+                        marques audacieuses.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Navigation</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li><a href="../index.html" class="hover:text-cyan-500 transition-colors">Accueil</a></li>
+                        <li><a href="./a-propos.html" class="hover:text-cyan-500 transition-colors">À Propos</a></li>
+                        <li><a href="./prestations.html" class="hover:text-cyan-500 transition-colors">Prestations</a>
+                        </li>
+                        <li><a href="./articles.html" class="hover:text-cyan-500 transition-colors">Articles</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contacts</h4>
+                    <ul class="space-y-4 text-zinc-500 text-sm">
+                        <li><a href="mailto:nyonjasolofo@gmail.com?subject=Contact%20depuis%20mon%20portfolio">M'envoyer un mail à nyonjasolofo@gmail.com</a></li>
+                        <li><a href="tel:+261346056035" class="hover:text-cyan-500 transition-colors">M'appeler au :+261 34 605 6035</a></li>
+                        <li><a href="https://teams.microsoft.com/l/chat/0/0?users=orimichikimiko@gmail.com"
+                                target="_blank" rel="noopener noreferrer">Me contacter sur Teams à Ainanomena Solofo</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-zinc-900 flex flex-col md:row justify-between items-center gap-4">
+                <p class="text-zinc-600 text-xs">© 2026 Niampita Ny Onja. Tous droits réservés.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-zinc-600 hover:text-white text-xs transition-colors">Mentions Légales</a>
+                    <a href="#" class="text-zinc-600 hover:text-white text-xs transition-colors">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

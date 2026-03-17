@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci ! | NIAMPITA NY ONJA</title>
+    <link href="../src/output.css" rel="stylesheet">
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="bg-zinc-950 text-white font-sans overflow-x-hidden min-h-screen flex flex-col">
+
+    <header class="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+        <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-2xl font-bold tracking-tighter flex items-center gap-2">
+                <img src="../Vue/img/gestalt-annsno-high-resolution-logo.png" alt="Logo" class="w-8 h-8 rounded-full">
+                <span>NIAMPITA NY ONJA</span>
+            </div>
+            <a href="../index.html" class="text-sm text-zinc-400 hover:text-cyan-400 transition-colors">Retour au site</a>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center pt-20 relative overflow-hidden">
+
+        <div
+            class="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] animate-pulse">
+        </div>
+        <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-[100px] animate-pulse"
+            style="animation-delay: 2s;"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-2xl mx-auto text-center animate-reveal">
+
+                <div
+                    class="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-zinc-900/50 border border-white/10 backdrop-blur-xl mb-8 shadow-2xl">
+                    <svg class="w-10 h-10 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+                    Message <span
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">transmis
+                        !</span>
+                </h1>
+
+                <p class="text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 max-w-lg mx-auto">
+                    Merci pour votre confiance. En tant que <strong class="text-white">Gestalt-Ansnno</strong>, je vais
+                    analyser votre demande pour vous proposer une solution où design, code et contenu s'alignent
+                    parfaitement.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="../index.html"
+                        class="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-600 to-purple-600 text-white font-bold text-sm uppercase tracking-widest hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all duration-300 active:scale-95">
+                        Retour à l'accueil
+                    </a>
+                    <a href="../Model/articles.html"
+                        class="px-8 py-4 rounded-xl bg-zinc-900 border border-white/5 text-zinc-300 font-bold text-sm uppercase tracking-widest hover:bg-zinc-800 transition-all duration-300">
+                        Lire mes articles
+                    </a>
+                </div>
+
+                <p class="mt-12 text-zinc-500 text-sm italic">
+                    Réponse prévue sous 48 heures.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10 border-t border-zinc-900 text-center">
+        <p class="text-zinc-600 text-xs">© 2026 Niampita. L'harmonie par la Gestalt.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('../fonts/quicksand-v37-latin-regular.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    /* Indispensable pour la performance */
+}
+
+/* --- Configuration du Thème v4 --- */
+@theme {
+    /* On lie le nom défini dans @font-face à la variable de Tailwind */
+    --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+    /* Définition des animations pour qu'elles deviennent des classes Tailwind */
+    --animate-orb-cyan: pulse-rotate-cyan 20s linear infinite;
+    --animate-orb-purple: pulse-rotate-purple 15s linear infinite;
+    --animate-float: float 4s ease-in-out infinite;
+    --animate-rotate-cw: rotate-cw 20s linear infinite;
+    --animate-rotate-ccw: rotate-ccw 15s linear infinite;
+    --animate-reveal: reveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+    /* On crée une variable d'ombre personnalisée */
+    --shadow-neon-cyan: 0 0 10px rgba(6, 182, 212, 0.5);
+
+    /* Keyframes intégrées au moteur de thème */
+    @keyframes reveal {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes pulse-rotate-cyan {
+
+        0%,
+        100% {
+            transform: scale(1) rotate(0deg);
+        }
+
+        50% {
+            transform: scale(1.2) rotate(90deg);
+        }
+    }
+
+    @keyframes pulse-rotate-purple {
+
+        0%,
+        100% {
+            transform: scale(1.2) rotate(90deg);
+        }
+
+        50% {
+            transform: scale(1) rotate(0deg);
+        }
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes rotate-cw {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes rotate-ccw {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+}
+
+/* Tes utilitaires spécifiques (Optionnel) */
+@utility text-gradient-custom {
+    background-image: linear-gradient(to right, var(--color-cyan-400), var(--color-purple-500), var(--color-pink-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* On s'assure que la couleur de base ne bloque pas le gradient */
+    color: transparent;
+}
+
+@utility transition-transform-colors {
+    transition-property: transform, border-color, box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+@layer utilities {
+
+    /* Barre de défilement personnalisée pour la modale */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        @apply bg-zinc-950 rounded-full my-2;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-zinc-800 rounded-full hover:bg-zinc-700 transition-colors;
+    }
+}
+
+@layer base {
+
+    /* Force le centrage de la balise dialog et gère le fond sombre */
+    dialog {
+        margin: auto;
+    }
+
+    dialog::backdrop {
+        background-color: rgba(9, 9, 11, 0.85);
+        /* Fond très sombre */
+        backdrop-filter: blur(12px);
+        /* Effet verre poli */
+    }
+
+    /* Animation d'apparition de la modale */
+    dialog[open] {
+        animation: modalFadeIn 0.3s ease-out forwards;
+    }
+
+    @keyframes modalFadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .container {
+        @apply px-4 md:px-6 mx-auto;
+        max-width: 1280px;
+        /* Optionnel, pour garder une cohérence Gestalt */
+    }
+}
+
+@layer components {
+
+    /* Style pour les titres H2 (plus grands et blancs) */
+    .article-rich-text h2 {
+        @apply text-3xl md:text-4xl font-bold text-white mt-12 mb-6 relative pl-6;
+    }
+
+    /* Barre décorative verticale pour le H2 */
+    .article-rich-text h2::before {
+        content: '';
+        @apply absolute left-0 top-0 bottom-0 w-1.5 rounded-full bg-gradient-to-b from-cyan-400 to-purple-500;
+    }
+
+    /* Style pour les titres H3 (plus petits et cyan) */
+    .article-rich-text h3 {
+        @apply text-xl md:text-2xl font-bold text-cyan-400 mt-8 mb-4;
+    }
+
+    .article-rich-text p {
+        @apply text-zinc-400 text-lg leading-relaxed mb-6;
+    }
+
+    .article-rich-text ul {
+        @apply list-none pl-0 mb-8 space-y-3;
+    }
+
+    .article-rich-text li {
+        @apply relative pl-6 text-zinc-300;
+    }
+
+    /* Puces de liste personnalisées cyan */
+    .article-rich-text li::before {
+        content: '▹';
+        @apply absolute left-0 text-cyan-500 font-bold text-lg leading-none top-1;
+    }
+
+    .article-rich-text strong {
+        @apply text-white font-bold;
+    }
+
+    .article-rich-text a {
+        @apply text-cyan-400 underline underline-offset-4 hover:text-cyan-300 transition-colors;
+    }
+
+    .glass-card-hover {
+        @apply transition-all duration-500;
+    }
+
+    /* Ajoute un reflet discret sur le dessus de la carte au survol */
+    .glass-card-hover:hover {
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}

@@ -117,190 +117,232 @@
                 </div>
 
                 <div class="space-y-12">
-
+                
                     <div x-data="{ shown: false }" x-intersect.margin.-100px.once="shown = true"
                         class="relative transform transition-all duration-700 ease-out delay-0"
                         :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'">
-                    
+                
                         <div
                             class="absolute left-6 top-8 w-5 h-5 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 border-4 border-zinc-950 hidden md:block z-20">
                         </div>
-                    
-                        <div class="relative overflow-hidden md:ml-20 rounded-2xl border border-zinc-800 hover:border-cyan-500/50 hover:translate-x-[10px] transition-transform-colors bg-cover bg-center"
-                            style="background-image: url('../Vue/img/ling-app-p5VW_ZUon7o-unsplash.jpg');">
-                    
-                            <div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-md"></div>
-                    
-                            <div class="relative z-10 p-8">
-                                <h3 class="text-2xl font-bold text-white mb-2">Rédacteur et Traducteur de Contenus</h3>
-                                <div class="flex items-center gap-2 text-cyan-400 mb-2">
-                                    <i data-lucide="briefcase" class="w-[18px] h-[18px]"></i>
-                                    <span class="font-semibold">Fronstory</span>
-                                </div>
-                    
-                                <div class="flex flex-wrap gap-4 text-sm text-zinc-500 mb-4">
-                                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2021 -
-                                        Aujourd'hui</span>
-                                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Remote</span>
-                                </div>
-                    
-                                <p class="text-zinc-400 mb-4">Création de contenus viraux et engageants sur le divertissement, pensés pour maximiser l'engagement utilisateur sur les
-                                clics.</p>
-                    
-                                <div class="mb-4">
-                                    <h4 class="text-white font-semibold mb-3">Réalisations clés :</h4>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Adaptation culturelle et linguistique de contenus internationaux vers le français</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Optimisation de pages de niche avec maillage interne et optimisation des balises Meta pour un excellent positionnement
-                                            sur les moteurs de recherche</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Création de contenus visuels de web et des réseaux sociaux pour soutenir et identifier les propositions de sujets à fort
-                                            potentiel de viralité</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                    
-                                <div class="flex flex-wrap gap-2 mt-6">
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">SEO</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Copywriting</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Traduction</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Content Marketing</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Social Media</span>
+                
+                        <div
+                            class="group relative md:ml-20 p-0.5 rounded-2xl bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:translate-x-[10px] transition-all duration-500 ease-out shadow-2xl">
+                
+                            <div class="relative overflow-hidden rounded-[14px] bg-zinc-950 bg-cover bg-center h-full"
+                                style="background-image: url('../Vue/img/ling-app-p5VW_ZUon7o-unsplash.webp');">
+                
+                                <div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-md"></div>
+                
+                                <div class="relative z-10 p-8">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Rédacteur et Traducteur de Contenus</h3>
+                                    <div class="flex items-center gap-2 text-cyan-400 mb-2">
+                                        <i data-lucide="briefcase" class="w-[18px] h-[18px]"></i>
+                                        <span class="font-semibold">Fronstory</span>
+                                    </div>
+                
+                                    <div class="flex flex-wrap gap-4 text-sm text-zinc-500 mb-4">
+                                        <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2021 -
+                                            Aujourd'hui</span>
+                                        <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i>
+                                            Remote</span>
+                                    </div>
+                
+                                    <p class="text-zinc-400 mb-4">Création de contenus viraux et engageants sur le divertissement,
+                                        pensés pour maximiser l'engagement utilisateur sur les clics.</p>
+                
+                                    <div class="mb-4">
+                                        <h4 class="text-white font-semibold mb-3">Réalisations clés :</h4>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Adaptation culturelle et linguistique de contenus internationaux vers le
+                                                    français</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Optimisation de pages de niche avec maillage interne et optimisation des balises
+                                                    Meta pour un excellent positionnement sur les moteurs de recherche</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Création de contenus visuels de web et des réseaux sociaux pour soutenir et
+                                                    identifier les propositions de sujets à fort potentiel de viralité</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                
+                                    <div class="flex flex-wrap gap-2 mt-6">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">SEO</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Copywriting</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Traduction</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Content
+                                            Marketing</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Social
+                                            Media</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                
                     <div x-data="{ shown: false }" x-intersect.margin.-100px.once="shown = true"
                         class="relative transform transition-all duration-700 ease-out delay-0"
                         :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'">
-                    
+                
                         <div
                             class="absolute left-6 top-8 w-5 h-5 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 border-4 border-zinc-950 hidden md:block z-20">
                         </div>
-                    
-                        <div class="relative overflow-hidden md:ml-20 rounded-2xl border border-zinc-800 hover:border-cyan-500/50 hover:translate-x-[10px] transition-transform-colors bg-cover bg-center"
-                            style="background-image: url('../Vue/img/growtika-dQkAdUGCntA-unsplash.jpg');">
-                    
-                            <div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-md"></div>
-                    
-                            <div class="relative z-10 p-8">
-                                <h3 class="text-2xl font-bold text-white mb-2">Copywriter & Rédacteur SEO</h3>
-                                <div class="flex items-center gap-2 text-cyan-400 mb-2">
-                                    <i data-lucide="briefcase" class="w-[18px] h-[18px]"></i>
-                                    <span class="font-semibold">Player Top</span>
-                                </div>
-                    
-                                <div class="flex flex-wrap gap-4 text-sm text-zinc-500 mb-4">
-                                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2017 -
-                                        2020</span>
-                                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Remote</span>
-                                </div>
-                    
-                                <p class="text-zinc-400 mb-4">Rédaction de contenus optimisés et création de fiches produits persuasives et tests détaillés.</p>
-                    
-                                <div class="mb-4">
-                                    <h4 class="text-white font-semibold mb-3">Réalisations clés :</h4>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Conception, rédaction et traduction d'articles de blog sur des thématiques variées</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Gestion et édition d'une page facebook organisant alliant une planification marketing à une compréhension technique de
-                                            l'algorithme en lecture adaptée à l'expérience utilisateur (UX)</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Formatage et intégration web optimisée</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Développement de l'audience internationale par la traduction de contenus marketing</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                    
-                                <div class="flex flex-wrap gap-2 mt-6">
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Copywriting</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">SEO</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Facebook Marketing</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">UX</span>
-                                    <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Traduction</span>
+                
+                        <div
+                            class="group relative md:ml-20 p-0.5 rounded-2xl bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:translate-x-[10px] transition-all duration-500 ease-out shadow-2xl">
+                
+                            <div class="relative overflow-hidden rounded-[14px] bg-zinc-950 bg-cover bg-center h-full"
+                                style="background-image: url('../Vue/img/growtika-dQkAdUGCntA-unsplash_result.webp');">
+                
+                                <div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-md"></div>
+                
+                                <div class="relative z-10 p-8">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Copywriter & Rédacteur SEO</h3>
+                                    <div class="flex items-center gap-2 text-cyan-400 mb-2">
+                                        <i data-lucide="briefcase" class="w-[18px] h-[18px]"></i>
+                                        <span class="font-semibold">Player Top</span>
+                                    </div>
+                
+                                    <div class="flex flex-wrap gap-4 text-sm text-zinc-500 mb-4">
+                                        <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2017 -
+                                            2020</span>
+                                        <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i>
+                                            Remote</span>
+                                    </div>
+                
+                                    <p class="text-zinc-400 mb-4">Rédaction de contenus optimisés et création de fiches produits
+                                        persuasives et tests détaillés.</p>
+                
+                                    <div class="mb-4">
+                                        <h4 class="text-white font-semibold mb-3">Réalisations clés :</h4>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Conception, rédaction et traduction d'articles de blog sur des thématiques
+                                                    variées</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Gestion et édition d'une page facebook organisant alliant une planification
+                                                    marketing à une compréhension technique de l'algorithme en lecture adaptée à
+                                                    l'expérience utilisateur (UX)</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Formatage et intégration web optimisée</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Développement de l'audience internationale par la traduction de contenus
+                                                    marketing</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                
+                                    <div class="flex flex-wrap gap-2 mt-6">
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Copywriting</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">SEO</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Facebook
+                                            Marketing</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">UX</span>
+                                        <span
+                                            class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Traduction</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                
                     <div x-data="{ shown: false }" x-intersect.margin.-100px.once="shown = true"
                         class="relative transform transition-all duration-700 ease-out delay-0"
                         :class="shown ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'">
-                    
+                
                         <div
                             class="absolute left-6 top-8 w-5 h-5 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 border-4 border-zinc-950 hidden md:block z-20">
                         </div>
-                    
-                        <div class="relative overflow-hidden md:ml-20 rounded-2xl border border-zinc-800 hover:border-cyan-500/50 hover:translate-x-[10px] transition-transform-colors bg-cover bg-center"
-                            style="background-image: url('../Vue/img/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.jpg');">
-                    
-                            <div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-md"></div>
-                    
-                            <div class="relative z-10 p-8">
-                                <h3 class="text-2xl font-bold text-white mb-2">Rédacteur Web et Traducteur B2B/B2C</h3>
-                                <div class="flex items-center gap-2 text-cyan-400 mb-2">
-                                    <i data-lucide="briefcase" class="w-[18px] h-[18px]"></i>
-                                    <span class="font-semibold">Fronstory</span>
+                
+                        <div
+                            class="group relative md:ml-20 p-0.5 rounded-2xl bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:translate-x-[10px] transition-all duration-500 ease-out shadow-2xl">
+                
+                            <div class="relative overflow-hidden rounded-[14px] bg-zinc-950 bg-cover bg-center h-full"
+                                style="background-image: url('../Vue/img/fotis-fotopoulos-6sAl6aQ4OWI-unsplash.webp');">
+                
+                                <div class="absolute inset-0 bg-zinc-950/70 backdrop-blur-md"></div>
+                
+                                <div class="relative z-10 p-8">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Rédacteur Web et Traducteur B2B/B2C</h3>
+                                    <div class="flex items-center gap-2 text-cyan-400 mb-2">
+                                        <i data-lucide="briefcase" class="w-[18px] h-[18px]"></i>
+                                        <span class="font-semibold">Fronstory</span>
+                                    </div>
+                
+                                    <div class="flex flex-wrap gap-4 text-sm text-zinc-500 mb-4">
+                                        <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2021 -
+                                            Aujourd'hui</span>
+                                        <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i>
+                                            Remote</span>
+                                    </div>
+                
+                                    <p class="text-zinc-400 mb-4">Création de contenus premium et adaptation linguistique pour le marché
+                                        francophone.</p>
+                
+                                    <div class="mb-4">
+                                        <h4 class="text-white font-semibold mb-3">Réalisations clés :</h4>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Production de contenus de niche axés sur les prestations du bâtiment et de la
+                                                    construction</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Rédaction de contenus techniques avec une forte capacité à vulgariser des concepts
+                                                    pour le grand public</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Acquisition et traitement de commandes libres, puis rédaction d'un portefeuille de
+                                                    clients réguliers via des commandes directes</span>
+                                            </li>
+                                            <li class="flex items-start text-zinc-300">
+                                                <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
+                                                <span>Respect strict des briefs clients, chartes éditoriales complexes, délais et
+                                                    densités sémantiques exigées pour le SEO</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Copywriting</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">SEO</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Facebook
+                                        Marketing</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">UX</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Traduction</span>
                                 </div>
-                    
-                                <div class="flex flex-wrap gap-4 text-sm text-zinc-500 mb-4">
-                                    <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-4 h-4"></i> 2021 -
-                                        Aujourd'hui</span>
-                                    <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-4 h-4"></i> Remote</span>
-                                </div>
-                    
-                                <p class="text-zinc-400 mb-4">Création de contenus premium et adaptation linguistique pour le marché
-                                    francophone.</p>
-                    
-                                <div class="mb-4">
-                                    <h4 class="text-white font-semibold mb-3">Réalisations clés :</h4>
-                                    <ul class="space-y-2">
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Production de contenus de niche axés sur les prestations du bâtiment et de la construction</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Rédaction de contenus techniques avec une forte capacité à vulgariser des concepts pour le grand public</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Acquisition et traitement de commandes libres, puis rédaction d'un portefeuille de clients réguliers via des commandes
-                                            directes</span>
-                                        </li>
-                                        <li class="flex items-start text-zinc-300">
-                                            <div class="w-1.5 h-1.5 rounded-full bg-cyan-500 mr-3 mt-2 flex-shrink-0"></div>
-                                            <span>Respect strict des briefs clients, chartes éditoriales complexes, délais et densités sémantiques exigées pour le SEO</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                    
-                                <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Copywriting</span>
-                                <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">SEO</span>
-                                <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Facebook Marketing</span>
-                                <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">UX</span>
-                                <span class="px-3 py-1 rounded-full bg-zinc-800/50 text-zinc-300 text-sm border border-zinc-700/50 backdrop-blur-sm">Traduction</span>
                             </div>
                         </div>
                     </div>
-
+                
                 </div>
 
             </div>
@@ -308,33 +350,41 @@
             <div x-data="{ shown: false }" x-intersect.once="shown = true"
                 class="mt-20 transform transition-all duration-700 ease-out delay-500"
                 :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
-
+            
                 <h2 class="text-3xl font-bold text-white mb-8 text-center">Formation</h2>
-
-                <div class="mb-8 md:ml-20 bg-zinc-900 relative overflow-hidden rounded-2xl border border-zinc-800 hover:translate-x-[5px] transition-transform bg-cover bg-center"
-                    style="background-image: url('../Vue/img/wesley-tingey-TdNLjGXVH3s-unsplash.jpg');">
-                
-                    <div class="absolute inset-0 bg-zinc-950/75 backdrop-blur-sm"></div>
-                
-                    <div class="relative z-10 p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Diplôme de Droit Privé Appliqué</h3>
-                        <p class="text-cyan-400 mb-1">Université d'Ankatso Antananarivo</p>
-                        <p class="text-zinc-500 text-sm">2011 - 2016</p>
+            
+                <div
+                    class="group relative mb-8 md:ml-20 p-0.5 rounded-2xl bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:translate-x-[5px] transition-all duration-500 ease-out shadow-xl">
+            
+                    <div class="relative overflow-hidden rounded-[14px] bg-zinc-950 bg-cover bg-center h-full"
+                        style="background-image: url('../Vue/img/wesley-tingey-TdNLjGXVH3s-unsplash_result.webp');">
+            
+                        <div class="absolute inset-0 bg-zinc-950/75 backdrop-blur-sm"></div>
+            
+                        <div class="relative z-10 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Diplôme de Droit Privé Appliqué</h3>
+                            <p class="text-cyan-400 mb-1">Université d'Ankatso Antananarivo</p>
+                            <p class="text-zinc-500 text-sm">2011 - 2016</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="md:ml-20 bg-zinc-900 relative overflow-hidden rounded-2xl border border-zinc-800 hover:translate-x-[5px] transition-transform bg-cover bg-center"
-                    style="background-image: url('../Vue/img/bunly-hort-o9olH5LziVg-unsplash.jpg');">
-                
-                    <div class="absolute inset-0 bg-zinc-950/75 backdrop-blur-sm"></div>
-                
-                    <div class="relative z-10 p-6">
-                        <h3 class="text-xl font-bold text-white mb-2">Baccalauréat Série A2</h3>
-                        <p class="text-cyan-400 mb-1">Lycée Arcade Antanimena II</p>
-                        <p class="text-zinc-500 text-sm">2009 - 2010</p>
+            
+                <div
+                    class="group relative md:ml-20 p-0.5 rounded-2xl bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:translate-x-[5px] transition-all duration-500 ease-out shadow-xl">
+            
+                    <div class="relative overflow-hidden rounded-[14px] bg-zinc-950 bg-cover bg-center h-full"
+                        style="background-image: url('../Vue/img/bunly-hort-o9olH5LziVg-unsplash.webp');">
+            
+                        <div class="absolute inset-0 bg-zinc-950/75 backdrop-blur-sm"></div>
+            
+                        <div class="relative z-10 p-6">
+                            <h3 class="text-xl font-bold text-white mb-2">Baccalauréat Série A2</h3>
+                            <p class="text-cyan-400 mb-1">Lycée Arcade Antanimena II</p>
+                            <p class="text-zinc-500 text-sm">2009 - 2010</p>
+                        </div>
                     </div>
                 </div>
-
+            
             </div>
 
             <div x-data="{ shown: false }" x-intersect.once="shown = true"

@@ -26,7 +26,7 @@
             </a>
     
             <nav class="hidden lg:flex items-center relative py-2 bg-zinc-900/50 px-2 rounded-full">
-                <div class="absolute h-8 rounded-full transition-all duration-300 ease-out z-0 bg-zinc-800"
+                <div class="absolute h-8 rounded-full transition-colors duration-300 ease-out z-0 bg-zinc-800"
                     :style="`left: ${offset}px; width: ${width}px; box-shadow: 0 0 15px rgba(6,182,212,0.1)`"></div>
     
                 <template x-for="item in [
@@ -40,7 +40,7 @@
                     <a :id="'nav-' + item.name" :href="item.url"
                         @mouseenter="offset = $el.offsetLeft; width = $el.offsetWidth" @click="active = item.name"
                         :class="active === item.name ? 'text-white' : 'text-zinc-400'"
-                        class="relative z-10 px-6 py-1 text-sm font-medium transition-all duration-500 hover:text-white"
+                        class="relative z-10 px-6 py-1 text-sm font-medium transition-colors duration-500 hover:text-white"
                         x-text="item.name">
                     </a>
                 </template>
@@ -155,7 +155,7 @@
                 class="flex flex-wrap justify-center gap-3 mb-16 relative z-10">
                 <template x-for="cat in categories" :key="cat">
                     <button @click="filtreActuel = cat; pageActuelle = 1"
-                        class="relative px-6 py-2 rounded-full border transition-all duration-300 text-sm font-bold tracking-widest uppercase flex items-center gap-2 group backdrop-blur-md"
+                        class="relative px-6 py-2 rounded-full border transition-transform text-sm font-bold tracking-widest uppercase flex items-center gap-2 group backdrop-blur-md"
                         :class="filtreActuel === cat 
                                         ? 'bg-cyan-500/20 border-cyan-500 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]' 
                                         : 'bg-zinc-900/50 border-white/10 text-zinc-500 hover:border-white/30 hover:text-white'">
@@ -188,7 +188,7 @@
                     <div @click="selectedArticle = article; $refs.modal.showModal()" x-data="{ shown: false }"
                         x-init="setTimeout(() => shown = true, 50)"
                         :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'"
-                        class="group relative w-full h-[480px] p-0.5 rounded-2xl transition-all duration-500 ease-out bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:-translate-y-2 cursor-pointer shadow-2xl">
+                        class="group relative w-full h-[480px] p-0.5 rounded-2xl transition-colors duration-500 ease-out bg-zinc-800 hover:bg-gradient-to-br hover:from-cyan-500 hover:to-purple-600 hover:-translate-y-2 cursor-pointer shadow-2xl">
                 
                         <div class="relative flex flex-col h-full w-full bg-zinc-950 rounded-[14px] overflow-hidden z-10">
                 
@@ -213,7 +213,7 @@
                                         decoding="async"
                                         class="w-full h-full object-cover opacity-25 group-hover:scale-110 transition-transform duration-700"
                                         style="object-position: bottom;" alt="Effet verre">
-                                    <div class="absolute inset-0 bg-zinc-250/80 backdrop-blur-xl"></div>
+                                    <div class="absolute inset-0 bg-zinc-900/95 md:bg-zinc-250/80 md:backdrop-blur-xl"></div>
                                 </div>
                 
                                 <div class="relative z-10 flex flex-col h-full">
@@ -225,7 +225,7 @@
                                     <div class="mt-auto pt-4 border-t border-white/10 flex justify-between items-center">
                                         <span class="text-zinc-500 text-[10px] font-medium" x-text="article.date"></span>
                                         <span
-                                            class="text-cyan-400 text-[10px] font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                                            class="text-cyan-400 text-[10px] font-bold flex items-center gap-1 group-hover:gap-2 transition-transform">
                                             Lire l'article
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -245,7 +245,7 @@
             <div x-show="!loading && nombreDePages > 1" class="flex justify-center items-center gap-4 mt-20 relative z-10">
             
                 <button @click="pageActuelle--; window.scrollTo({top: 0, behavior: 'smooth'})" :disabled="pageActuelle === 1"
-                    class="p-3 rounded-xl border border-white/10 bg-zinc-900/50 text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 disabled:opacity-30 disabled:cursor-not-allowed transition-all backdrop-blur-md">
+                    class="p-3 rounded-xl border border-white/10 bg-zinc-900/50 text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 disabled:opacity-30 disabled:cursor-not-allowed transition-transform backdrop-blur-md">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
@@ -254,7 +254,7 @@
                 <div class="flex gap-2">
                     <template x-for="p in nombreDePages" :key="p">
                         <button @click="pageActuelle = p; window.scrollTo({top: 0, behavior: 'smooth'})" x-text="p"
-                            class="w-10 h-10 rounded-xl border font-bold text-sm transition-all duration-300 backdrop-blur-md"
+                            class="w-10 h-10 rounded-xl border font-bold text-sm transition-colors duration-500 backdrop-blur-md"
                             :class="pageActuelle === p 
                                         ? 'bg-cyan-500/20 border-cyan-500 text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.3)]' 
                                         : 'bg-zinc-900/50 border-white/10 text-zinc-500 hover:border-white/30 hover:text-white'">
@@ -264,7 +264,7 @@
             
                 <button @click="pageActuelle++; window.scrollTo({top: 0, behavior: 'smooth'})"
                     :disabled="pageActuelle === nombreDePages"
-                    class="p-3 rounded-xl border border-white/10 bg-zinc-900/50 text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 disabled:opacity-30 disabled:cursor-not-allowed transition-all backdrop-blur-md">
+                    class="p-3 rounded-xl border border-white/10 bg-zinc-900/50 text-zinc-400 hover:text-cyan-400 hover:border-cyan-500/50 disabled:opacity-30 disabled:cursor-not-allowed transition-transform backdrop-blur-md">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>

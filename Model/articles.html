@@ -105,7 +105,8 @@
                 
                 this.articles = json.result.map(article => ({
                     ...article,
-                    contenu: toHTML(article.contenu) 
+                    image: article.image ? `${article.image}?w=600&h=400&fit=crop&auto=format` : null,
+                    contenu: toHTML(article.contenu)
                 }));
             } catch (error) {
                 console.error('Erreur Sanity :', error);
@@ -193,6 +194,8 @@
                 
                             <div class="h-1/2 relative overflow-hidden border-b border-white/5">
                                 <img :src="article.image"
+                                    loading="lazy"
+                                    decoding="async"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                     alt="Vignette">
                 
@@ -206,6 +209,8 @@
                             <div class="h-1/2 relative flex flex-col p-6">
                                 <div class="absolute inset-0 z-0">
                                     <img :src="article.image"
+                                        loading="lazy"
+                                        decoding="async"
                                         class="w-full h-full object-cover opacity-25 group-hover:scale-110 transition-transform duration-700"
                                         style="object-position: bottom;" alt="Effet verre">
                                     <div class="absolute inset-0 bg-zinc-250/80 backdrop-blur-xl"></div>
@@ -301,7 +306,11 @@
                                 <div
                                     class="w-full h-64 md:h-80 mb-10 rounded-xl overflow-hidden relative border border-white/5">
                                     <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent z-10"></div>
-                                    <img :src="selectedArticle.image" class="w-full h-full object-cover">
+                                    <img :src="selectedArticle.image"
+                                         loading="lazy"
+                                         decoding="async"
+                                         :alt="selectedArticle.titre"
+                                         class="w-full h-full object-cover">
                                 </div>
                             </template>
         
